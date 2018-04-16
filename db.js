@@ -11,3 +11,5 @@ sequelize.authenticate().then(
     },
     err => console.log(err)
 );
+
+module.exports = sequelize;

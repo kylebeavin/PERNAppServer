@@ -5,6 +5,9 @@ const sequelize = require('./db');
 const bodyParser = require('body-parser');
 
 app.use(bodyParser.json());
+
+sequelize.sync();
+
 app.use('/api/user', user);
 // app.use('api/login', log);
 
