@@ -14,6 +14,6 @@ app.use('/api/user', user);
 app.use(require('./middleware/validate-session'));
 // app.use('/api/user', sign);
 
-app.listen(3000, () => {
-    console.log('App is listening on 3000.');
+app.listen(4000, () => {
+    console.log('App is listening on 4000.');
 }); 
