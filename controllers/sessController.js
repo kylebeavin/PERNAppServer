@@ -1,14 +1,14 @@
 const express = require('express');
 const router = express.Router();
 const sequelize = require('../db')
-const User = sequelize.import('../models/user');
+const User = sequelize.import('../models/content');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
-router.post('/signin', (req, res) => {
+router.post('/', (req, res) => {
     User.findOne({
         where: {
-            email: req.body.user.email
+            content: req.body.user.email
         }
     }).then((user) => {
         if (user) {
