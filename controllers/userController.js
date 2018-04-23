@@ -18,8 +18,7 @@ router.post('/', (req, res) => {
         password: bcrypt.hashSync(password, 10)
     }).then(
         createSuccess = (user) => {
-
-            const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, { expiresIn: 60 * 60 * 24 });
+            const token = jwt.sign({ id: user.dataValues.id }, process.env.JWT_SECRET, { expiresIn: 60 * 60 * 24 });
 
             res.json({
                 user: user,

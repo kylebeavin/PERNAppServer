@@ -7,17 +7,19 @@ router.post('/', (req, res) => {
     let subject = req.body.content.subject;
     let notes = req.body.content.notes;
     let reference = req.body.content.reference;
+    let user = req.user;
 
     Content.create({
         subject: subject,
         notes: notes,
-        reference: reference
+        reference: reference,
+        owner: user.id
     })
         .then(createSuccess = (content) => {
             res.json({
                 content: content,
                 message: 'created',
-            });
+           });
         },
             createError = (err) => {
                 res.send(500, err.message);
@@ -25,7 +27,9 @@ router.post('/', (req, res) => {
 })
 
 router.get('/', (req, res) => {
-    Content.findAll()
+    let userid = req.user.id;
+
+    Content.findAll({ where: {owner: userid}})
         .then(
             findAllSuccess = (data) => {
                 res.json(data);
