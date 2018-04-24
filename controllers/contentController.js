@@ -19,7 +19,7 @@ router.post('/', (req, res) => {
             res.json({
                 content: content,
                 message: 'created',
-           });
+            });
         },
             createError = (err) => {
                 res.send(500, err.message);
@@ -29,7 +29,7 @@ router.post('/', (req, res) => {
 router.get('/', (req, res) => {
     let userid = req.user.id;
 
-    Content.findAll({ where: {owner: userid}})
+    Content.findAll({ where: { owner: userid } })
         .then(
             findAllSuccess = (data) => {
                 res.json(data);

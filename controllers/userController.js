@@ -62,17 +62,17 @@ router.post('/signin', (req, res) => {
     });
 });
 
-router.get('/', (req,res) => {
+router.get('/', (req, res) => {
 
     User.findAll()
-    .then(
-        findAllSuccess = (data) => {
-            res.json(data);
-        },
-        findAllError = (err) => {
-            res.send(500, err.message);
-        }
-    );
+        .then(
+            findAllSuccess = (data) => {
+                res.json(data);
+            },
+            findAllError = (err) => {
+                res.send(500, err.message);
+            }
+        );
 })
 
 module.exports = router;

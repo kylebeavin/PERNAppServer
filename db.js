@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize');
 
-const sequelize = new Sequelize('PERNAPP','postgres','killab513', {
-    host: 'localhost',
+const sequelize = new Sequelize(process.env.DATABASE_URL, {
+    port: 5432,
     dialect: 'postgres'
 });
 

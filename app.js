@@ -11,9 +11,9 @@ sequelize.sync();
 app.use(bodyParser.json());
 app.use(require('./middleware/headers'));
 app.use('/api/user', user);
-app.use(require('./middleware/validate-session')); 
-app.use('/api/content', content); 
+app.use(require('./middleware/validate-session'));
+app.use('/api/content', content);
 
-app.listen(4000, () => {
-    console.log('App is listening on 4000.');
+app.listen(process.env.PORT, () => {
+    console.log(`App is listening on ${process.env.PORT}`);
 }); 
